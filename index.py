@@ -9,6 +9,7 @@ from flask import Flask
 from flask.ext.socketio import SocketIO, emit
 
 app = Flask(__name__)
+app.config.from_object('settings')
 app.debug = True
 
 if not app.debug:
