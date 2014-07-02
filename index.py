@@ -26,7 +26,7 @@ class StorjAPI:
 		self.statusPath = '/api/status'
 	@staticmethod
 	def getNodeStatus(self):
-		r = requests.get(self.node + statusPath)
+		r = requests.get(self.node + self.statusPath)
 		return r.json()
 
 def status_thread():
