@@ -21,12 +21,9 @@ socketio = SocketIO(app)
 thread = None
 
 class StorjAPI:
-	def __init__(self):
-		self.node = app.config['NODE_URL']
-		self.statusPath = '/api/status'
 	@staticmethod
-	def getNodeStatus(self):
-		r = requests.get(self.node + self.statusPath)
+	def getNodeStatus():
+		r = requests.get(app.config['NODE_URL'] + '/api/status')
 		return r.json()
 
 def status_thread():
