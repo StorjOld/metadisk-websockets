@@ -32,10 +32,6 @@ def status_thread():
         time.sleep(5)
         socketio.emit('status', StorjAPI.getNodeStatus(), namespace='/metadisk')
 
-@socketio.on('status')
-def node_status():
-	socketio.emit('status', StorjAPI.getNodeStatus())
-
 @socketio.on('connect', namespace='/metadisk')
 def metadisk_connect():
 	global thread
