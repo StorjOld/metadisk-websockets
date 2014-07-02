@@ -34,7 +34,7 @@ def status_thread():
         time.sleep(10)
         socketio.emit('status', StorjAPI.getNodeStatus(), namespace='/metadisk')
 
-@socket.io('status'):
+@socket.io('status')
 def node_status():
 	socketio.emit('status', StorjAPI.getNodeStatus())
 
