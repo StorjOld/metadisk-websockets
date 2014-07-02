@@ -9,7 +9,7 @@ from flask import Flask
 from flask.ext.socketio import SocketIO, emit
 
 app = Flask(__name__)
-app.debug = False
+app.debug = True
 
 if not app.debug:
     import logging
@@ -25,7 +25,7 @@ class StorjAPI:
 		self.node = app.config['NODE_URL']
 		self.statusPath = '/api/status'
 	@staticmethod
-	def getNodeStatus():
+	def getNodeStatus(self):
 		r = requests.get(self.node + statusPath)
 		return r.json()
 
