@@ -34,7 +34,7 @@ def status_thread():
         time.sleep(10)
         socketio.emit('status', StorjAPI.getNodeStatus(), namespace='/metadisk')
 
-@socket.io('status')
+@socketio.on('status')
 def node_status():
 	socketio.emit('status', StorjAPI.getNodeStatus())
 
@@ -49,7 +49,6 @@ def metadisk_connect():
 @socketio.on('disconnect', namespace='/metadisk')
 def metadisk_disconnect():
     print('Client has disconnected.')
-
 
 if __name__ == '__main__':
 	socketio.run(app)
