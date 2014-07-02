@@ -1,0 +1,1 @@
+NODE_URL = "http://node2.storj.io"
