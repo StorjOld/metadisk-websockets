@@ -42,6 +42,31 @@ server {
 }
 ```
 
+## Testing
+You can test that the module is working correctly by creating an HTML file (see below) and running it under a separate test server using `python -m SimpleHTTPServer index.py` or `python -m http.server index.py` (if running test server under Python 3).
+
+```
+<html>
+    <head>
+        <script src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+        <script charset="utf-8">
+        $(document).ready(function(){
+            var namespace = '/metadisk';
+            var domain = 'localhost';
+            var port = '5000';
+            var socket = io.connect('http://' + domain + ':' + port + namespace);
+            socket.on('status', function(msg) {
+                console.log('Received:', msg);
+            });
+        });
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
+```
+
 ## Compatibility
 
 Only compatible with Python 2.x due to Flask-SocketIO's gevent dependency.
