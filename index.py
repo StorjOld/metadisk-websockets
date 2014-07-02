@@ -41,10 +41,10 @@ def node_status():
 @socketio.on('connect', namespace='/metadisk')
 def metadisk_connect():
 	global thread
-    if thread is None:
-        thread = Thread(target=status_thread)
-        thread.start()
-    print('Client has connected.')
+	if thread is None:
+		thread = Thread(target=status_thread)
+		thread.start()
+	print('Client has connected.')
 
 @socketio.on('disconnect', namespace='/metadisk')
 def metadisk_disconnect():
