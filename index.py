@@ -29,7 +29,7 @@ class StorjAPI:
 
 def status_thread():
     while True:
-        time.sleep(10)
+        time.sleep(5)
         socketio.emit('status', StorjAPI.getNodeStatus(), namespace='/metadisk')
 
 @socketio.on('status')
