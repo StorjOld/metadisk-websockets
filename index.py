@@ -46,4 +46,4 @@ def metadisk_disconnect():
     print('Client has disconnected from ' + request.remote_addr + ' at ' + str(datetime.now()))
 
 if __name__ == '__main__':
-	socketio.run(app)
+	socketio.run(app, host='127.0.0.1', port=5050)
