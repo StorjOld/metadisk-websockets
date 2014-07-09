@@ -31,9 +31,9 @@ class StorjAPI:
 def status_thread():
     while True:
         time.sleep(5)
-        socketio.emit('status', StorjAPI.getNodeStatus(), namespace='/ws-metadisk')
+        socketio.emit('status', StorjAPI.getNodeStatus())
 
-@socketio.on('connect', namespace='/ws-metadisk')
+@socketio.on('connect')
 def metadisk_connect():
 	global thread
 	if thread is None:
@@ -41,7 +41,7 @@ def metadisk_connect():
 		thread.start()
 	print('Client has connected from ' + request.remote_addr + ' at ' + str(datetime.now()))
 
-@socketio.on('disconnect', namespace='/ws-metadisk')
+@socketio.on('disconnect')
 def metadisk_disconnect():
     print('Client has disconnected from ' + request.remote_addr + ' at ' + str(datetime.now()))
 
