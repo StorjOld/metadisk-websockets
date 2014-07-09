@@ -11,7 +11,7 @@ from flask.ext.socketio import SocketIO, emit
 
 app = Flask(__name__)
 app.config.from_object('settings')
-app.debug = True
+app.debug = False
 
 if not app.debug:
     import logging
